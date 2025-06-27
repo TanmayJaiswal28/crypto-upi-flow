@@ -73,13 +73,13 @@ const PaymentConfirmation = () => {
               )}
             </div>
 
-            <h1 className="text-2xl font-bold text-light-text mb-2">
+            <h1 className="text-2xl font-bold text-white mb-2">
               {status === 'pending' && 'Processing Payment...'}
               {status === 'success' && 'Payment Successful! 🎉'}
               {status === 'failed' && 'Payment Failed'}
             </h1>
 
-            <p className="text-gray-400 mb-4">
+            <p className="text-gray-300 mb-4 text-base">
               {status === 'pending' && 'Your crypto is being converted and sent'}
               {status === 'success' && 'Money has been sent to the recipient'}
               {status === 'failed' && 'Something went wrong with your transaction'}
@@ -98,7 +98,7 @@ const PaymentConfirmation = () => {
               className={`${
                 status === 'pending' ? 'bg-neon-pink' : 
                 status === 'success' ? 'bg-neon-green' : 'bg-neon-red'
-              } text-white px-4 py-2`}
+              } text-white px-4 py-2 font-medium`}
             >
               {status === 'pending' && 'Processing'}
               {status === 'success' && 'Completed'}
@@ -110,42 +110,42 @@ const PaymentConfirmation = () => {
         {/* Transaction Details */}
         <Card className="glass-dark border-0 animate-in">
           <CardHeader>
-            <CardTitle className="text-light-text text-lg">Transaction Details</CardTitle>
+            <CardTitle className="text-white text-lg font-semibold">Transaction Details</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="flex justify-between">
-              <span className="text-gray-400">To</span>
+            <div className="flex justify-between items-start">
+              <span className="text-gray-300 font-medium">To</span>
               <div className="text-right">
-                <p className="text-light-text font-medium">{paymentData.upiId}</p>
+                <p className="text-white font-semibold">{paymentData.upiId}</p>
                 <button 
                   onClick={() => copyToClipboard(paymentData.upiId, 'UPI ID')}
-                  className="text-neon-cyan text-sm hover:underline"
+                  className="text-neon-cyan text-sm hover:underline font-medium"
                 >
                   Copy UPI ID
                 </button>
               </div>
             </div>
 
-            <div className="flex justify-between">
-              <span className="text-gray-400">Amount Sent</span>
+            <div className="flex justify-between items-start">
+              <span className="text-gray-300 font-medium">Amount Sent</span>
               <div className="text-right">
-                <p className="text-light-text font-medium">
+                <p className="text-white font-semibold">
                   {paymentData.amount} {paymentData.selectedToken}
                 </p>
-                <p className="text-neon-green text-sm">≈ ₹{paymentData.inrAmount}</p>
+                <p className="text-neon-green text-sm font-medium">≈ ₹{paymentData.inrAmount}</p>
               </div>
             </div>
 
             <div className="flex justify-between">
-              <span className="text-gray-400">Network Fee</span>
-              <span className="text-light-text">{paymentData.totalFee} {paymentData.selectedToken}</span>
+              <span className="text-gray-300 font-medium">Network Fee</span>
+              <span className="text-white font-semibold">{paymentData.totalFee} {paymentData.selectedToken}</span>
             </div>
 
             <div className="border-t border-border-light pt-4">
               <div className="flex justify-between items-center">
-                <span className="text-gray-400">Transaction Hash</span>
+                <span className="text-gray-300 font-medium">Transaction Hash</span>
                 <div className="flex items-center space-x-2">
-                  <span className="text-light-text text-sm font-mono">
+                  <span className="text-white text-sm font-mono font-medium">
                     {txHash.substring(0, 12)}...
                   </span>
                   <button 
@@ -167,7 +167,7 @@ const PaymentConfirmation = () => {
               <div className="grid grid-cols-2 gap-3">
                 <Button
                   variant="outline"
-                  className="glass border-border-light text-light-text hover:bg-border-light"
+                  className="glass border-border-light text-white hover:bg-border-light font-medium"
                   onClick={() => {/* Download receipt logic */}}
                 >
                   <Download className="w-4 h-4 mr-2" />
@@ -175,7 +175,7 @@ const PaymentConfirmation = () => {
                 </Button>
                 <Button
                   variant="outline"
-                  className="glass border-border-light text-light-text hover:bg-border-light"
+                  className="glass border-border-light text-white hover:bg-border-light font-medium"
                   onClick={() => handleShare('whatsapp')}
                 >
                   <Share className="w-4 h-4 mr-2" />
@@ -186,13 +186,13 @@ const PaymentConfirmation = () => {
               <div className="flex space-x-2">
                 <Button
                   onClick={() => handleShare('whatsapp')}
-                  className="flex-1 bg-green-600 hover:bg-green-700 text-white"
+                  className="flex-1 bg-green-600 hover:bg-green-700 text-white font-medium"
                 >
                   📱 WhatsApp
                 </Button>
                 <Button
                   onClick={() => handleShare('telegram')}
-                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white"
+                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium"
                 >
                   ✈️ Telegram
                 </Button>
@@ -214,10 +214,10 @@ const PaymentConfirmation = () => {
         {/* Success Message */}
         {status === 'success' && (
           <div className="text-center p-6 glass-dark rounded-xl animate-in">
-            <p className="text-neon-green font-medium mb-2">
+            <p className="text-neon-green font-semibold mb-2 text-base">
               "Send USDT, Get INR. Instantly." ✨
             </p>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-300 text-sm font-medium">
               The fastest way to move money across chains into banks.
             </p>
           </div>
