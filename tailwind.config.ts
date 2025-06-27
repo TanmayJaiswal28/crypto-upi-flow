@@ -63,18 +63,21 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Web3 UPI App custom colors
-				'neon-blue': '#00D4FF',
-				'neon-purple': '#8B5CF6',
+				// Updated Web3 UPI App custom colors
+				'dark-base': '#0D0D0D',
+				'glass-surface': '#1A1A1A',
+				'neon-cyan': '#0FF0FC',
+				'neon-pink': '#FF26A8',
 				'neon-green': '#00FF88',
-				'crypto-dark': '#0A0A0B',
-				'crypto-gray': '#1A1A1B',
+				'neon-red': '#FF3C58',
+				'light-text': '#E0E0E0',
+				'border-light': '#2E2E2E',
 			},
 			backgroundImage: {
-				'gradient-web3': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-				'gradient-neon': 'linear-gradient(135deg, #00D4FF 0%, #8B5CF6 100%)',
-				'gradient-success': 'linear-gradient(135deg, #00FF88 0%, #00D4FF 100%)',
-				'gradient-card': 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
+				'gradient-web3': 'linear-gradient(135deg, #0FF0FC 0%, #FF26A8 100%)',
+				'gradient-neon': 'linear-gradient(135deg, #0FF0FC 0%, #FF26A8 100%)',
+				'gradient-success': 'linear-gradient(135deg, #00FF88 0%, #0FF0FC 100%)',
+				'gradient-card': 'linear-gradient(135deg, rgba(26,26,26,0.8) 0%, rgba(46,46,46,0.4) 100%)',
 			},
 			backdropBlur: {
 				'xs': '2px',
@@ -106,10 +109,10 @@ export default {
 				},
 				'pulse-neon': {
 					'0%, 100%': {
-						boxShadow: '0 0 20px rgba(0, 212, 255, 0.5)'
+						boxShadow: '0 0 20px rgba(15, 240, 252, 0.5)'
 					},
 					'50%': {
-						boxShadow: '0 0 30px rgba(0, 212, 255, 0.8), 0 0 40px rgba(139, 92, 246, 0.6)'
+						boxShadow: '0 0 30px rgba(15, 240, 252, 0.8), 0 0 40px rgba(255, 38, 168, 0.6)'
 					}
 				},
 				'slide-up': {

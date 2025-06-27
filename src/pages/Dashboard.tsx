@@ -47,14 +47,14 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-crypto-dark via-crypto-gray to-crypto-dark p-4">
+    <div className="min-h-screen bg-gradient-to-br from-dark-base via-glass-surface to-dark-base p-4 sm:p-6">
       {/* Header */}
       <div className="max-w-md mx-auto mb-6">
         <div className="flex items-center justify-between mb-2">
-          <h1 className="text-2xl font-bold text-white neon-text">CryptoUPI</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-light-text neon-text">CryptoUPI</h1>
           <Badge 
             variant={walletConnected ? "default" : "destructive"}
-            className={`glass ${walletConnected ? 'bg-gradient-success' : ''}`}
+            className={`glass ${walletConnected ? 'bg-gradient-success text-white' : 'bg-neon-red text-white'}`}
           >
             <Wallet className="w-3 h-3 mr-1" />
             {walletConnected ? "Connected" : "Disconnected"}
@@ -71,7 +71,7 @@ const Dashboard = () => {
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-neon flex items-center justify-center animate-pulse-neon">
                 <ArrowUp className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-xl font-semibold text-white mb-2">Send Crypto to UPI</h2>
+              <h2 className="text-xl font-semibold text-light-text mb-2">Send Crypto to UPI</h2>
               <p className="text-gray-400 text-sm">
                 Send USDT, ETH, SOL directly to any Indian bank account
               </p>
@@ -89,8 +89,8 @@ const Dashboard = () => {
         {/* Wallet Balances */}
         <Card className="glass-dark border-0 animate-in">
           <CardHeader>
-            <CardTitle className="text-white text-lg flex items-center">
-              <Wallet className="w-5 h-5 mr-2 text-neon-blue" />
+            <CardTitle className="text-light-text text-lg flex items-center">
+              <Wallet className="w-5 h-5 mr-2 text-neon-cyan" />
               Wallet Balance
             </CardTitle>
           </CardHeader>
@@ -100,12 +100,12 @@ const Dashboard = () => {
                 <div className="flex items-center space-x-3">
                   <span className="text-xl">{balance.icon}</span>
                   <div>
-                    <p className="text-white font-medium">{balance.token}</p>
+                    <p className="text-light-text font-medium">{balance.token}</p>
                     <p className="text-gray-400 text-sm">{balance.balance}</p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-white font-medium">{balance.value}</p>
+                  <p className="text-light-text font-medium">{balance.value}</p>
                   <p className="text-neon-green text-sm">+2.4%</p>
                 </div>
               </div>
@@ -116,7 +116,7 @@ const Dashboard = () => {
         {/* Recent Transactions */}
         <Card className="glass-dark border-0 animate-in">
           <CardHeader>
-            <CardTitle className="text-white text-lg flex items-center">
+            <CardTitle className="text-light-text text-lg flex items-center">
               <IndianRupee className="w-5 h-5 mr-2 text-neon-green" />
               Recent Transactions
             </CardTitle>
@@ -129,21 +129,21 @@ const Dashboard = () => {
                     {tx.status === "Complete" ? (
                       <CheckCircle className="w-5 h-5 text-neon-green" />
                     ) : (
-                      <Circle className="w-5 h-5 text-yellow-400 animate-pulse" />
+                      <Circle className="w-5 h-5 text-neon-pink animate-pulse" />
                     )}
                   </div>
                   <div>
-                    <p className="text-white font-medium">{tx.upiId}</p>
-                    <p className="text-gray-400 text-sm">{tx.time}</p>
+                    <p className="text-light-text font-medium text-sm sm:text-base">{tx.upiId}</p>
+                    <p className="text-gray-400 text-xs sm:text-sm">{tx.time}</p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-white font-medium">{tx.amount}</p>
+                  <p className="text-light-text font-medium text-sm sm:text-base">{tx.amount}</p>
                   <div className="flex items-center space-x-1">
-                    <Badge variant="outline" className="text-xs">
+                    <Badge variant="outline" className="text-xs border-border-light text-neon-cyan">
                       {tx.token}
                     </Badge>
-                    <button className="text-gray-400 hover:text-neon-blue">
+                    <button className="text-gray-400 hover:text-neon-cyan">
                       <Copy className="w-3 h-3" />
                     </button>
                   </div>

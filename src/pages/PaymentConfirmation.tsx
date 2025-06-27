@@ -55,14 +55,14 @@ const PaymentConfirmation = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-crypto-dark via-crypto-gray to-crypto-dark p-4">
+    <div className="min-h-screen bg-gradient-to-br from-dark-base via-glass-surface to-dark-base p-4 sm:p-6">
       <div className="max-w-md mx-auto space-y-6">
         {/* Status Card */}
         <Card className="glass-dark border-0 animate-in text-center">
           <CardContent className="p-8">
             <div className="mb-6">
               {status === 'pending' && (
-                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center justify-center animate-pulse">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-r from-neon-pink to-neon-cyan flex items-center justify-center animate-pulse">
                   <Clock className="w-10 h-10 text-white" />
                 </div>
               )}
@@ -73,7 +73,7 @@ const PaymentConfirmation = () => {
               )}
             </div>
 
-            <h1 className="text-2xl font-bold text-white mb-2">
+            <h1 className="text-2xl font-bold text-light-text mb-2">
               {status === 'pending' && 'Processing Payment...'}
               {status === 'success' && 'Payment Successful! 🎉'}
               {status === 'failed' && 'Payment Failed'}
@@ -86,7 +86,7 @@ const PaymentConfirmation = () => {
             </p>
 
             {status === 'pending' && (
-              <div className="w-full bg-gray-700 rounded-full h-2 mb-4">
+              <div className="w-full bg-border-light rounded-full h-2 mb-4">
                 <div 
                   className="bg-gradient-neon h-2 rounded-full transition-all duration-500"
                   style={{ width: `${progress}%` }}
@@ -96,8 +96,8 @@ const PaymentConfirmation = () => {
 
             <Badge 
               className={`${
-                status === 'pending' ? 'bg-yellow-500' : 
-                status === 'success' ? 'bg-green-500' : 'bg-red-500'
+                status === 'pending' ? 'bg-neon-pink' : 
+                status === 'success' ? 'bg-neon-green' : 'bg-neon-red'
               } text-white px-4 py-2`}
             >
               {status === 'pending' && 'Processing'}
@@ -110,16 +110,16 @@ const PaymentConfirmation = () => {
         {/* Transaction Details */}
         <Card className="glass-dark border-0 animate-in">
           <CardHeader>
-            <CardTitle className="text-white text-lg">Transaction Details</CardTitle>
+            <CardTitle className="text-light-text text-lg">Transaction Details</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex justify-between">
               <span className="text-gray-400">To</span>
               <div className="text-right">
-                <p className="text-white font-medium">{paymentData.upiId}</p>
+                <p className="text-light-text font-medium">{paymentData.upiId}</p>
                 <button 
                   onClick={() => copyToClipboard(paymentData.upiId, 'UPI ID')}
-                  className="text-neon-blue text-sm hover:underline"
+                  className="text-neon-cyan text-sm hover:underline"
                 >
                   Copy UPI ID
                 </button>
@@ -129,7 +129,7 @@ const PaymentConfirmation = () => {
             <div className="flex justify-between">
               <span className="text-gray-400">Amount Sent</span>
               <div className="text-right">
-                <p className="text-white font-medium">
+                <p className="text-light-text font-medium">
                   {paymentData.amount} {paymentData.selectedToken}
                 </p>
                 <p className="text-neon-green text-sm">≈ ₹{paymentData.inrAmount}</p>
@@ -138,19 +138,19 @@ const PaymentConfirmation = () => {
 
             <div className="flex justify-between">
               <span className="text-gray-400">Network Fee</span>
-              <span className="text-white">{paymentData.totalFee} {paymentData.selectedToken}</span>
+              <span className="text-light-text">{paymentData.totalFee} {paymentData.selectedToken}</span>
             </div>
 
-            <div className="border-t border-gray-600 pt-4">
+            <div className="border-t border-border-light pt-4">
               <div className="flex justify-between items-center">
                 <span className="text-gray-400">Transaction Hash</span>
                 <div className="flex items-center space-x-2">
-                  <span className="text-white text-sm font-mono">
+                  <span className="text-light-text text-sm font-mono">
                     {txHash.substring(0, 12)}...
                   </span>
                   <button 
                     onClick={() => copyToClipboard(txHash, 'Transaction hash')}
-                    className="text-neon-blue hover:text-neon-purple"
+                    className="text-neon-cyan hover:text-neon-pink"
                   >
                     <Copy className="w-4 h-4" />
                   </button>
@@ -167,7 +167,7 @@ const PaymentConfirmation = () => {
               <div className="grid grid-cols-2 gap-3">
                 <Button
                   variant="outline"
-                  className="glass border-gray-600 text-white hover:bg-gray-700"
+                  className="glass border-border-light text-light-text hover:bg-border-light"
                   onClick={() => {/* Download receipt logic */}}
                 >
                   <Download className="w-4 h-4 mr-2" />
@@ -175,7 +175,7 @@ const PaymentConfirmation = () => {
                 </Button>
                 <Button
                   variant="outline"
-                  className="glass border-gray-600 text-white hover:bg-gray-700"
+                  className="glass border-border-light text-light-text hover:bg-border-light"
                   onClick={() => handleShare('whatsapp')}
                 >
                   <Share className="w-4 h-4 mr-2" />

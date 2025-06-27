@@ -52,7 +52,7 @@ const PaymentForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-crypto-dark via-crypto-gray to-crypto-dark p-4">
+    <div className="min-h-screen bg-gradient-to-br from-dark-base via-glass-surface to-dark-base p-4 sm:p-6">
       {/* Header */}
       <div className="max-w-md mx-auto mb-6">
         <div className="flex items-center space-x-4 mb-4">
@@ -60,12 +60,12 @@ const PaymentForm = () => {
             variant="ghost"
             size="sm"
             onClick={() => navigate('/')}
-            className="text-gray-400 hover:text-white"
+            className="text-gray-400 hover:text-light-text hover:bg-glass-surface"
           >
             <ArrowLeft className="w-5 h-5" />
           </Button>
           <div>
-            <h1 className="text-xl font-bold text-white">Send Payment</h1>
+            <h1 className="text-xl sm:text-2xl font-bold text-light-text">Send Payment</h1>
             <p className="text-gray-400 text-sm">Send crypto to UPI instantly</p>
           </div>
         </div>
@@ -75,7 +75,7 @@ const PaymentForm = () => {
         {/* Recipient Details */}
         <Card className="glass-dark border-0 animate-in">
           <CardHeader>
-            <CardTitle className="text-white text-lg flex items-center">
+            <CardTitle className="text-light-text text-lg flex items-center">
               <IndianRupee className="w-5 h-5 mr-2 text-neon-green" />
               Recipient Details
             </CardTitle>
@@ -88,7 +88,7 @@ const PaymentForm = () => {
                 placeholder="example@paytm / phonepe / gpay"
                 value={upiId}
                 onChange={(e) => setUpiId(e.target.value)}
-                className="mt-1 bg-crypto-gray border-gray-600 text-white placeholder-gray-500 focus:border-neon-blue"
+                className="mt-1 bg-glass-surface border-border-light text-light-text placeholder-gray-500 focus:border-neon-cyan"
               />
             </div>
           </CardContent>
@@ -97,19 +97,19 @@ const PaymentForm = () => {
         {/* Token Selection */}
         <Card className="glass-dark border-0 animate-in">
           <CardHeader>
-            <CardTitle className="text-white text-lg flex items-center">
-              <Wallet className="w-5 h-5 mr-2 text-neon-blue" />
+            <CardTitle className="text-light-text text-lg flex items-center">
+              <Wallet className="w-5 h-5 mr-2 text-neon-cyan" />
               Select Token
             </CardTitle>
           </CardHeader>
           <CardContent>
             <Select value={selectedToken} onValueChange={setSelectedToken}>
-              <SelectTrigger className="bg-crypto-gray border-gray-600 text-white">
+              <SelectTrigger className="bg-glass-surface border-border-light text-light-text">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent className="bg-crypto-gray border-gray-600">
+              <SelectContent className="bg-glass-surface border-border-light backdrop-blur-xl">
                 {tokens.map((token) => (
-                  <SelectItem key={token.symbol} value={token.symbol} className="text-white hover:bg-gray-700">
+                  <SelectItem key={token.symbol} value={token.symbol} className="text-light-text hover:bg-border-light">
                     <div className="flex items-center space-x-3">
                       <span className="text-lg">{token.icon}</span>
                       <div>
@@ -143,7 +143,7 @@ const PaymentForm = () => {
                   placeholder="0.00"
                   value={amount}
                   onChange={(e) => handleAmountChange(e.target.value)}
-                  className="mt-1 bg-crypto-gray border-gray-600 text-white text-xl font-semibold text-center focus:border-neon-blue"
+                  className="mt-1 bg-glass-surface border-border-light text-light-text text-xl font-semibold text-center focus:border-neon-cyan"
                 />
               </div>
               
@@ -168,21 +168,21 @@ const PaymentForm = () => {
         {amount && (
           <Card className="glass-dark border-0 animate-in">
             <CardHeader>
-              <CardTitle className="text-white text-sm">Fee Breakdown</CardTitle>
+              <CardTitle className="text-light-text text-sm">Fee Breakdown</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
               <div className="flex justify-between text-sm">
                 <span className="text-gray-400">Network Fee</span>
-                <span className="text-white">{networkFee} {selectedToken}</span>
+                <span className="text-light-text">{networkFee} {selectedToken}</span>
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-gray-400">Platform Fee</span>
-                <span className="text-white">{platformFee} {selectedToken}</span>
+                <span className="text-light-text">{platformFee} {selectedToken}</span>
               </div>
-              <div className="border-t border-gray-600 pt-2 mt-2">
+              <div className="border-t border-border-light pt-2 mt-2">
                 <div className="flex justify-between font-semibold">
-                  <span className="text-white">Total Fee</span>
-                  <span className="text-neon-blue">{totalFee} {selectedToken}</span>
+                  <span className="text-light-text">Total Fee</span>
+                  <span className="text-neon-cyan">{totalFee} {selectedToken}</span>
                 </div>
               </div>
             </CardContent>
